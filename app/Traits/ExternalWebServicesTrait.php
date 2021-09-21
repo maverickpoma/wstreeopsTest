@@ -26,9 +26,9 @@ trait ExternalWebServicesTrait
     protected function makeRequest(
         string $method,
         string $uri,
-        array $query = [],
+        array $headers = [],
         array $body = [],
-        array $headers = []
+        array $query = []
     ) {
         $httpClient = new Client([
             'base_uri' => $this->baseUri

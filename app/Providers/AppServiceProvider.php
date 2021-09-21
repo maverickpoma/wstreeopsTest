@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Contracts\Gampe\NotifyTicketRepository;
+use App\Repositories\Gampe\NotifyTicketChangeEventRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,6 +15,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(NotifyTicketRepository::class, NotifyTicketChangeEventRepository::class);
     }
 }
