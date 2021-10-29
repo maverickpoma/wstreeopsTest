@@ -10,4 +10,6 @@ namespace App\Contracts\Gampe;
 interface NotifyTicketRepository
 {
     public function notifyTicketAttributeValueChangeEvent(array $body);
+
+
 }

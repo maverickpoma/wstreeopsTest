@@ -30,19 +30,26 @@ trait ExternalWebServicesTrait
         array $body = [],
         array $query = []
     ) {
-        $httpClient = new Client([
+        $httpClient = new \GuzzleHttp\Client([
             'base_uri' => $this->baseUri
-        ]);
 
+        ]);
+        #var_dump($headers);
+        #var_dump($body);
+        #exit;
+        #dd($httpClient);
         $response = $httpClient->request(
             $method,
             $uri,
             [
                 'query' => $query,
-                'form_params' => $body,
-                'headers' => $headers
-            ]
+                'body' => json_encode($body),
+                'headers' => $headers,
+               # 'debug' => true
+               ]
         );
+        #return $response->getStatusCode();
+
         $response = $response->getBody()->getContents();
 
         if (method_exists($this, 'decodeResponse')) {

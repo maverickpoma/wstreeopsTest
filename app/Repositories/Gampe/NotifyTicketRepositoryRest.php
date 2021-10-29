@@ -40,6 +40,7 @@ class NotifyTicketRepositoryRest implements ExternalServiceRepository
      */
     public function decodeResponse(string $response)
     {
+
         $decodeResponse = json_decode($response);
         return $decodeResponse->data ?? $decodeResponse;
     }

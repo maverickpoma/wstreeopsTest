@@ -24,9 +24,13 @@ final class NotifyTicketChangeEventController extends Controller
     public function __invoke(Request $request)
     {
         $body = $request->all();
-        $data = $this->repository->notifyTicketAttributeValueChangeEvent(
-            $body
-        );
+
+        $data = $this->repository->notifyTicketAttributeValueChangeEvent($body);
+
         return response()->json($data);
+
+
+
     }
+
 }
