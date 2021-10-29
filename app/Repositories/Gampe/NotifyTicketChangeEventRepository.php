@@ -7,7 +7,7 @@ use App\Contracts\Gampe\NotifyTicketRepository;
 use App\Traits\GenerateHeader;
 use DateTime;
 use DateTimeZone;
-use mysql_xdevapi\Exception;
+use Exception;
 
 
 /**
@@ -54,7 +54,7 @@ final class NotifyTicketChangeEventRepository extends NotifyTicketRepositoryRest
 
             $resp = $this->makeRequest(
                 'POST',
-                '/ri/ticket/v2/ticketAttributeValueChangeEvent',
+                'posts',//'/ri/ticket/v2/ticketAttributeValueChangeEvent',
                 $headers,
                 $body
             );
